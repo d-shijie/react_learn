@@ -5,6 +5,9 @@ import './example'
 import Example from './example'
 import Table from './Table'
 import Form from './Form'
+// 组件可定义为类或函数 定义为类组件需要继承React.Component
+// 组件的生命周期 略分为render=>constructor=>componentDidMount=>componentDidUpdate=>componentsWillUnmount 更多https://reactjs.org/docs/react-component.html
+// 每当调用componentDidMount componentDidUpdate componentWillUnmount 都会调用render
 class App extends React.Component {
     // constructor接受两个参数props和context
     // props是使用此组件的组件传递给此组件的数据  context表示上下文
@@ -22,7 +25,19 @@ class App extends React.Component {
             ]
         }
     }
+    // 生命周期挂载函数
+    componentDidMount() {
+        const api = 'http://'
+        console.log('componentDidMount'); // render componentDidMount
+    }
+    componentDidUpdate() {
+        console.log('componentDidUpdate');// render componentDidUpdate
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount');// render componentWillUnmount
+    }
     render() {
+        console.log('render');
         // 变量可以用{}包裹之后在html语句上直接使用 
         const name = 'world'
         // jsx的写法
